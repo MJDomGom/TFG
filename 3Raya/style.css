@@ -1,30 +1,42 @@
-#tablero{
+#tablero {
     margin-left: auto;
     margin-right: auto;
     border: 1px solid black;
     border-collapse: collapse;
 }
 
-#reiniciar{
+#reiniciar {
     margin-left: auto;
     margin-right: auto;
     border: 0px;
 }
 
-#titulo{
+#titulo {
     margin-left: auto;
     margin-right: auto;
     border: 0px;
 }
 
-#tablero td{
+#tablero td {
     width: 100px;
     height: 100px;
     border: 5px solid black;
 }
 
-#titulo td{
+#titulo td {
     margin-left: auto;
     margin-right: auto;
     width: 100px;
+}
+
+#titulo {
+    text-align: center;
+}
+
+#turno {
+    text-align: center;
+}
+
+h3{
+    text-align: center;
 }
