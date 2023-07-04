@@ -3,7 +3,7 @@ var jugadorP = 1;
 var jugadorIA = 2;
 var turnoActual = jugadorP;
 var juegoActivo = true;
-
+var nodosVisitados = 0;
 
 
 function dibujar() {
@@ -31,8 +31,12 @@ function selecCasilla(casilla) {
                 dibujar();
                 let isGanador = comprobarGanador();
                 if (disponibles > 1 && isGanador == false) {
-                    //movRanIA();
+                    nodosVisitados = 0;
+                    start = performance.now()
                     mejorMov();
+                    end = performance.now()
+                    console.log("Tiempo de decision del agente: "+(end - start)+" milisegundos")
+                    console.log("Nodos visitados: "+nodosVisitados);
                 }
             }
         } else {
@@ -48,32 +52,23 @@ function comprobarGanador(){
     switch (ganador) {
         case 0:
             return false;
-            break;
         case 1:
             document.getElementById("resultado").innerHTML = '<span><h3>Gano la persona</h3></span>';
             juegoActivo = false;
             return true;
-            break;
         case 2:
             document.getElementById("resultado").innerHTML = '<span><h3>Gano la IA</h3></span>';
             juegoActivo = false;
             return true;
-            break;
         case 3:
             document.getElementById("resultado").innerHTML = '<span><h3>Empate</h3></span>';
             juegoActivo = false;
             return true;
-            break;
     }
 }
 
 function checkGanador() {
-    var espacios = 0
-    for (i = 0; i < tablero.length; i++) {
-        if (tablero[i] == 0) {
-            espacios++;
-        }
-    }
+    espacios = casillasDisponibles();
     //HORIZONTAL
     if (tablero[0] == tablero[1] && tablero[1] == tablero[2] && tablero[0] != 0) { return tablero[0]; }
     if (tablero[3] == tablero[4] && tablero[4] == tablero[5] && tablero[3] != 0) { return tablero[3]; }
@@ -93,16 +88,6 @@ function checkGanador() {
     }
 }
 
-function movRanIA() {
-    casilla = 1;
-    while (casilla != 0) {
-        random = Math.floor(Math.random() * 10);
-        if (tablero[random] == 0) {
-            tablero[random] = jugadorIA;
-            casilla = 0;
-        }
-    }
-}
 function casillasDisponibles() {
     count = 0;
     for (i = 0; i < tablero.length; i++) {
@@ -131,8 +116,8 @@ function mejorMov() {
 }
 
 
-//NO ESTA COGIENDO EL NUEVO TABLERO CADA VEZ QUE HACE LA FUNCION RECURSIVA
 function minimax(tablero, profundidad, isMax) {
+    nodosVisitados++;
     let resultado = checkGanador(tablero);
     if (resultado == 1) {
         return -1;
@@ -169,5 +154,3 @@ function minimax(tablero, profundidad, isMax) {
         return mejorPuntuacion;
     }
 }
-
-

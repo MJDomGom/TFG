@@ -1,0 +1,21 @@
+Alumno: Manuel Jesús Domínguez Gómez
+Tutor: Raúl Giráldez Rojo
+
+En el siguiente documento, expondremos los pasos necesarios a la hora de ejecutar el siguiente archivo.
+
+1- Instalar, utilizando la herramienta pip los módulos encontrado en el archivo requirement.txt.
+Si prefiere instalar los módulos manualmente, los nombres son: pickle, pygame y neat-python.
+
+2- Una vez instalados los módulos, deberá ejecutar el archivo neat-Pong.py
+
+3- Una vez ejecutado el archivo neat-Pong.py, se le abrirá el menú inicial del juego. En este menú
+podrá pinchar en 2 botones diferentes, siendo estos "train" y "best"
+
+4- Si pincha en el botón de "train", se abrirá una ventana donde se ejecutara una instancia del videojuego y podrá observar
+a los diferentes individuos entrenar. Además, se mostrarán estadísticas para proveer de más información. Este entrenamiento lo
+hace siguiendo los parámetros del archivo config.txt, por lo que puede cambiar este archivo y comenzar de nuevo el entrenamiento
+cuando quiera. Al acabar el entrenamiento, volverá al menú inicial y se guardará al mejor individuo del entrenamiento.
+
+5- Si, en cambio, se pincha en el botón "Best", se cargará al agente y se pondrá a jugar al videojuego por él solo.
+
+Destacamos que podrá salir de cualquier ventana pinchando en la X superior derecha. Esto hará que vuelva hasta el menú, si está entrenado o jugando y saldrá del juego si se pincha en el menú inicial.
